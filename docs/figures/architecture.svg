@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" font-family="Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640" font-family="Helvetica, Arial, sans-serif">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6472"/>
@@ -7,145 +7,106 @@
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#c65a5a"/>
     </marker>
     <style>
-      .title { font-size: 22px; font-weight: 700; fill: #1f2933; }
-      .subtitle { font-size: 13px; fill: #5b6472; }
-      .lane { font-size: 11.5px; font-weight: 700; letter-spacing: 1.5px; fill: #7b8794; }
-      .box-title { font-size: 14px; font-weight: 700; fill: #1f2933; }
-      .t { font-size: 12px; fill: #52606d; }
-      .code { font-family: Menlo, Consolas, monospace; font-size: 11px; fill: #323f4b; }
-      .file { font-family: Menlo, Consolas, monospace; font-size: 10.5px; fill: #616e7c; }
-      .edge { stroke: #5b6472; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
-      .loop { stroke: #c65a5a; stroke-width: 1.8; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrow-loop); }
-      .edge-label { font-size: 11px; fill: #5b6472; }
-      .loop-label { font-size: 11px; font-weight: 700; fill: #c65a5a; }
+      .title { font-size: 24px; font-weight: 700; fill: #1f2933; }
+      .lane { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; fill: #7b8794; }
+      .box-title { font-size: 15px; font-weight: 700; fill: #1f2933; }
+      .t { font-size: 13px; fill: #52606d; }
+      .code { font-family: Menlo, Consolas, monospace; font-size: 12px; fill: #323f4b; }
+      .edge { stroke: #5b6472; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .loop { stroke: #c65a5a; stroke-width: 2; fill: none; stroke-dasharray: 6 4; marker-end: url(#arrow-loop); }
+      .edge-label { font-size: 12px; fill: #5b6472; }
+      .loop-label { font-size: 12px; font-weight: 700; fill: #c65a5a; }
     </style>
   </defs>
 
-  <rect width="1100" height="720" fill="#ffffff"/>
-  <text x="40" y="42" class="title">Medical knowledge-graph agent: build, retrieve, evaluate, repeat</text>
-  <text x="40" y="62" class="subtitle">Authoritative sources become an evidence-linked knowledge graph; the graph grounds answers on six LLM platforms; an independent</text>
-  <text x="40" y="79" class="subtitle">judge scores them against a rubric; measured defects drive the next build. Data and KB content are not in the repository.</text>
+  <rect width="1100" height="640" fill="#ffffff"/>
+  <text x="40" y="44" class="title">Build the graph · ground the answers · measure · repeat</text>
 
-  <!-- ============ 1. Sources ============ -->
-  <rect x="40" y="100" width="1020" height="96" rx="10" fill="#fff8e6" stroke="#f0c36d"/>
-  <text x="56" y="120" class="lane">1 · SOURCES</text>
-  <rect x="60" y="128" width="190" height="60" rx="6" fill="#ffffff" stroke="#f0c36d"/>
-  <text x="155" y="150" text-anchor="middle" class="box-title">Authoritative documents</text>
-  <text x="155" y="170" text-anchor="middle" class="t">labels · guidelines · trials · internal</text>
-  <rect x="262" y="128" width="190" height="60" rx="6" fill="#ffffff" stroke="#f0c36d"/>
-  <text x="357" y="150" text-anchor="middle" class="box-title">Real patient questions</text>
-  <text x="357" y="170" text-anchor="middle" class="t">consultation sites · social media</text>
-  <rect x="464" y="128" width="200" height="60" rx="6" fill="#ffffff" stroke="#f0c36d"/>
-  <text x="564" y="150" text-anchor="middle" class="box-title">Benchmark</text>
-  <text x="564" y="170" text-anchor="middle" class="t">246 questions, hidden rubric each</text>
-  <rect x="676" y="128" width="364" height="60" rx="6" fill="#ffffff" stroke="#f0c36d"/>
-  <text x="858" y="150" text-anchor="middle" class="box-title">Six LLM platforms</text>
-  <text x="858" y="166" text-anchor="middle" class="t">Qwen · DeepSeek · Doubao · Kimi · Hunyuan · GLM</text>
-  <text x="858" y="181" text-anchor="middle" class="t">via API, or RPA-driven web chat UI</text>
+  <!-- ============ 1. Inputs ============ -->
+  <rect x="40" y="70" width="1020" height="100" rx="10" fill="#fff8e6" stroke="#f0c36d"/>
+  <text x="56" y="90" class="lane">1 · INPUTS</text>
+  <rect x="60" y="100" width="230" height="56" rx="6" fill="#ffffff" stroke="#f0c36d"/>
+  <text x="175" y="123" text-anchor="middle" class="box-title">Authoritative sources</text>
+  <text x="175" y="143" text-anchor="middle" class="t">labels · guidelines · trials</text>
+  <rect x="306" y="100" width="230" height="56" rx="6" fill="#ffffff" stroke="#f0c36d"/>
+  <text x="421" y="123" text-anchor="middle" class="box-title">Benchmark</text>
+  <text x="421" y="143" text-anchor="middle" class="t">246 patient questions · rubrics</text>
+  <rect x="552" y="100" width="488" height="56" rx="6" fill="#ffffff" stroke="#f0c36d"/>
+  <text x="796" y="123" text-anchor="middle" class="box-title">Six LLM platforms</text>
+  <text x="796" y="143" text-anchor="middle" class="t">API access, or RPA-driven web chat where no API exists</text>
 
-  <!-- ============ 2. KB builder ============ -->
-  <rect x="40" y="226" width="500" height="200" rx="10" fill="#eef4ff" stroke="#9db8f0"/>
-  <text x="56" y="246" class="lane">2 · KNOWLEDGE-BASE CONSTRUCTION</text>
-  <text x="524" y="246" text-anchor="end" class="code">kb_builder/</text>
-  <text x="60" y="272" class="t">Agent skill + scripts. Ten-step workflow with two human review checkpoints.</text>
-  <rect x="60" y="284" width="140" height="58" rx="6" fill="#ffffff" stroke="#9db8f0"/>
-  <text x="130" y="305" text-anchor="middle" class="box-title">Extract</text>
-  <text x="130" y="322" text-anchor="middle" class="file">pdf docx xlsx OCR</text>
-  <text x="130" y="335" text-anchor="middle" class="file">CNKI · CT.gov API</text>
-  <rect x="216" y="284" width="140" height="58" rx="6" fill="#ffffff" stroke="#9db8f0"/>
-  <text x="286" y="305" text-anchor="middle" class="box-title">Normalise · relate</text>
-  <text x="286" y="322" text-anchor="middle" class="file">canonical name · alias</text>
-  <text x="286" y="335" text-anchor="middle" class="file">typed edges · no-merge</text>
-  <rect x="372" y="284" width="148" height="58" rx="6" fill="#ffffff" stroke="#9db8f0"/>
-  <text x="446" y="305" text-anchor="middle" class="box-title">Validate</text>
-  <text x="446" y="322" text-anchor="middle" class="file">validate_kb.py</text>
-  <text x="446" y="335" text-anchor="middle" class="file">orphans · conflicts</text>
-  <path d="M 200 313 L 214 313" class="edge"/>
-  <path d="M 356 313 L 370 313" class="edge"/>
-  <text x="60" y="366" class="t">Citation verification: PubMed E-utilities, CrossRef DOI, Chinese journals, patents, regulations.</text>
-  <text x="60" y="384" class="t">Every hard number is a claim with evidence; unverifiable values are marked, never estimated.</text>
-  <text x="60" y="408" class="code">analyze_eval.py → defect-profile.json → validate_kb.py --defects</text>
+  <!-- ============ 2. KB construction ============ -->
+  <rect x="40" y="200" width="500" height="170" rx="10" fill="#eef4ff" stroke="#9db8f0"/>
+  <text x="56" y="220" class="lane">2 · KNOWLEDGE CONSTRUCTION</text>
+  <text x="524" y="220" text-anchor="end" class="code">kb_builder/</text>
+  <rect x="60" y="236" width="140" height="60" rx="6" fill="#ffffff" stroke="#9db8f0"/>
+  <text x="130" y="262" text-anchor="middle" class="box-title">Extract</text>
+  <text x="130" y="282" text-anchor="middle" class="t">PDF · Word · Excel</text>
+  <rect x="216" y="236" width="150" height="60" rx="6" fill="#ffffff" stroke="#9db8f0"/>
+  <text x="291" y="262" text-anchor="middle" class="box-title">Normalise · relate</text>
+  <text x="291" y="282" text-anchor="middle" class="t">entities · typed edges</text>
+  <rect x="382" y="236" width="138" height="60" rx="6" fill="#ffffff" stroke="#9db8f0"/>
+  <text x="451" y="262" text-anchor="middle" class="box-title">Validate</text>
+  <text x="451" y="282" text-anchor="middle" class="t">quality · citations</text>
+  <path d="M 200 266 L 214 266" class="edge"/>
+  <path d="M 366 266 L 380 266" class="edge"/>
+  <text x="60" y="324" class="t">Agent workflow with two human review checkpoints.</text>
+  <text x="60" y="346" class="t">Every number is a claim with a verified source.</text>
 
   <!-- ============ 3. Knowledge graph ============ -->
-  <rect x="560" y="226" width="500" height="200" rx="10" fill="#f3ecfb" stroke="#b79ae0"/>
-  <text x="576" y="246" class="lane">3 · KNOWLEDGE GRAPH</text>
-  <text x="1044" y="246" text-anchor="end" class="code">entities.jsonl · relations.jsonl</text>
-  <rect x="580" y="258" width="220" height="62" rx="6" fill="#ffffff" stroke="#b79ae0"/>
-  <text x="590" y="276" class="box-title">Nodes · 123 verified · 27 types</text>
-  <text x="590" y="292" class="t">Drug · Regimen · Disease · Test</text>
-  <text x="590" y="305" class="t">AdverseEvent · Emergency · Symptom</text>
-  <text x="590" y="318" class="t">ClinicalClaim · ClinicalBoundary …</text>
-  <rect x="816" y="258" width="224" height="62" rx="6" fill="#ffffff" stroke="#b79ae0"/>
-  <text x="826" y="276" class="box-title">Edges · 161 typed · 44 types</text>
-  <text x="826" y="292" class="t">is_a · regimen_for · approved_for</text>
-  <text x="826" y="305" class="t">causes_adverse_event · inhibits</text>
-  <text x="826" y="318" class="t">requires_baseline_test · supported_by</text>
-  <rect x="580" y="328" width="460" height="92" rx="6" fill="#ffffff" stroke="#b79ae0"/>
-  <text x="590" y="346" class="box-title">Safety constraints as first-class edges</text>
-  <text x="590" y="361" class="code">requires_emergency_action · must_not_self_adjust</text>
-  <text x="590" y="374" class="code">requires_clinician_decision · does_not_replace</text>
-  <text x="590" y="387" class="code">not_interchangeable_with · not_combined_with</text>
-  <text x="590" y="400" class="code">requires_context_lock</text>
-  <text x="590" y="414" class="t">Evidence on every node and edge: source · grade · locator · quote · SHA-256.</text>
-
-  <!-- arrows -->
-  <path d="M 155 188 L 155 224" class="edge"/>
-  <path d="M 540 326 L 558 326" class="edge"/>
-  <path d="M 452 158 L 462 158" class="edge"/>
-  <path d="M 564 188 L 564 210 L 550 210 L 550 470" class="edge"/>
-  <text x="556" y="462" class="edge-label">questions + rubrics</text>
-  <path d="M 858 188 L 858 210 L 1072 210 L 1072 450 L 1030 450 L 1030 470" class="edge"/>
-  <text x="1026" y="444" text-anchor="end" class="edge-label">answers</text>
-  <path d="M 810 426 L 810 470" class="edge"/>
-  <text x="818" y="452" class="edge-label">top-k evidence [KB:node_id]</text>
+  <rect x="560" y="200" width="500" height="170" rx="10" fill="#f3ecfb" stroke="#b79ae0"/>
+  <text x="576" y="220" class="lane">3 · KNOWLEDGE GRAPH</text>
+  <text x="1044" y="220" text-anchor="end" class="code">entities · relations · evidence</text>
+  <rect x="580" y="236" width="220" height="60" rx="6" fill="#ffffff" stroke="#b79ae0"/>
+  <text x="690" y="262" text-anchor="middle" class="box-title">123 nodes · 27 types</text>
+  <text x="690" y="282" text-anchor="middle" class="t">drug · regimen · test · claim</text>
+  <rect x="820" y="236" width="220" height="60" rx="6" fill="#ffffff" stroke="#b79ae0"/>
+  <text x="930" y="262" text-anchor="middle" class="box-title">161 edges · 44 types</text>
+  <text x="930" y="282" text-anchor="middle" class="t">incl. safety constraints</text>
+  <text x="580" y="324" class="t">Safety rules are relationships, not prose:</text>
+  <text x="580" y="346" class="code">requires_emergency_action · must_not_self_adjust · …</text>
 
   <!-- ============ 4. Evaluation ============ -->
-  <rect x="40" y="472" width="1020" height="172" rx="10" fill="#eafaf1" stroke="#7fcf9f"/>
-  <text x="56" y="492" class="lane">4 · RETRIEVAL-GROUNDED ANSWERING AND PAIRED A/B EVALUATION</text>
-  <text x="1044" y="492" text-anchor="end" class="code">kb_ab_eval/ · model_eval/ · rpa_collection/</text>
+  <rect x="40" y="400" width="1020" height="150" rx="10" fill="#eafaf1" stroke="#7fcf9f"/>
+  <text x="56" y="420" class="lane">4 · GROUNDED ANSWERING AND PAIRED A/B EVALUATION</text>
+  <text x="1044" y="420" text-anchor="end" class="code">kb_ab_eval/ · model_eval/ · rpa_collection/</text>
+  <rect x="60" y="436" width="230" height="96" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
+  <text x="70" y="460" class="box-title">Retrieve</text>
+  <text x="70" y="482" class="t">BM25 over nodes, aliases and</text>
+  <text x="70" y="500" class="t">neighbour edges · safety boost</text>
+  <text x="70" y="522" class="code">KBRetriever.search()</text>
+  <rect x="306" y="436" width="230" height="96" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
+  <text x="316" y="460" class="box-title">Answer, two arms</text>
+  <text x="316" y="482" class="t">baseline prompt vs safety rules</text>
+  <text x="316" y="500" class="t">+ rubric anchors + KB evidence</text>
+  <text x="316" y="522" class="code">answer_system_zh.md</text>
+  <rect x="552" y="436" width="230" height="96" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
+  <text x="562" y="460" class="box-title">Judge independently</text>
+  <text x="562" y="482" class="t">6 dimensions · 5 red lines</text>
+  <text x="562" y="500" class="t">separate model, hidden rubric</text>
+  <text x="562" y="522" class="code">judge_system_zh.md</text>
+  <rect x="798" y="436" width="242" height="96" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
+  <text x="808" y="460" class="box-title">Report</text>
+  <text x="808" y="482" class="t">paired deltas per dimension</text>
+  <text x="808" y="500" class="t">SHA-256 manifest · resumable</text>
+  <text x="808" y="522" class="code">paired_results.jsonl</text>
+  <path d="M 290 484 L 304 484" class="edge"/>
+  <path d="M 536 484 L 550 484" class="edge"/>
+  <path d="M 782 484 L 796 484" class="edge"/>
 
-  <rect x="60" y="506" width="230" height="122" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
-  <text x="70" y="526" class="box-title">Retriever</text>
-  <text x="70" y="544" class="t">BM25 over node text + aliases +</text>
-  <text x="70" y="558" class="t">neighbour edges + evidence titles;</text>
-  <text x="70" y="572" class="t">name-match boost; safety-node boost</text>
-  <text x="70" y="586" class="t">on risk queries; char-budgeted top-k.</text>
-  <text x="70" y="606" class="code">KBRetriever.search()</text>
+  <!-- ============ arrows ============ -->
+  <path d="M 175 156 L 175 198" class="edge"/>
+  <path d="M 540 300 L 558 300" class="edge"/>
+  <path d="M 421 156 L 421 184 L 550 184 L 550 398" class="edge"/>
+  <text x="556" y="392" class="edge-label">questions</text>
+  <path d="M 796 156 L 796 184 L 1074 184 L 1074 380 L 1030 380 L 1030 398" class="edge"/>
+  <text x="1024" y="392" text-anchor="end" class="edge-label">answers</text>
+  <path d="M 700 370 L 700 398" class="edge"/>
+  <text x="708" y="392" class="edge-label">top-k evidence</text>
 
-  <rect x="306" y="506" width="230" height="122" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
-  <text x="316" y="526" class="box-title">Two arms per platform</text>
-  <text x="316" y="544" class="t">Baseline: plain system prompt.</text>
-  <text x="316" y="558" class="t">Optimised: safety rules + per-question</text>
-  <text x="316" y="572" class="t">rubric anchors + retrieved KB evidence.</text>
-  <text x="316" y="586" class="t">Same question, same time window.</text>
-  <text x="316" y="606" class="code">answer_system_zh.md</text>
-  <text x="316" y="620" class="code">baseline_system_zh.md</text>
-
-  <rect x="552" y="506" width="230" height="122" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
-  <text x="562" y="526" class="box-title">Independent judge</text>
-  <text x="562" y="544" class="t">Separate model, hidden rubric, JSON-</text>
-  <text x="562" y="558" class="t">schema output. Six dimensions D1–D6</text>
-  <text x="562" y="572" class="t">scored 0 / 0.5 / 1; red lines R1–R5</text>
-  <text x="562" y="586" class="t">veto a pass. No self-grading.</text>
-  <text x="562" y="606" class="code">judge_system_zh.md</text>
-  <text x="562" y="620" class="code">scoring/score_export.py</text>
-
-  <rect x="798" y="506" width="242" height="122" rx="6" fill="#ffffff" stroke="#7fcf9f"/>
-  <text x="808" y="526" class="box-title">Reproducible runs</text>
-  <text x="808" y="544" class="t">Manifest with SHA-256 of KB, benchmark,</text>
-  <text x="808" y="558" class="t">prompts and platform config; resumable</text>
-  <text x="808" y="572" class="t">JSONL append; paired before/after deltas</text>
-  <text x="808" y="586" class="t">per dimension; HTML and Markdown reports.</text>
-  <text x="808" y="606" class="code">manifest.json</text>
-  <text x="808" y="620" class="code">paired_results.jsonl</text>
-
-  <path d="M 290 567 L 304 567" class="edge"/>
-  <path d="M 536 567 L 550 567" class="edge"/>
-  <path d="M 782 567 L 796 567" class="edge"/>
-
-  <!-- ============ feedback loop ============ -->
-  <path d="M 40 567 L 22 567 L 22 408 L 58 408" class="loop"/>
-  <text x="40" y="668" class="loop-label">Defect-driven loop</text>
-  <text x="40" y="686" class="t">Scored exports are aggregated into a defect profile (which questions fail, on which dimension, on every model). The profile ranks what the next</text>
-  <text x="40" y="702" class="t">KB batch must cover, and validate_kb.py checks that the new entities and anti-pattern cards actually close the measured gaps before delivery.</text>
+  <!-- feedback loop -->
+  <path d="M 40 484 L 22 484 L 22 336 L 58 336" class="loop"/>
+  <text x="40" y="582" class="loop-label">Defect-driven loop</text>
+  <text x="40" y="602" class="t">Scored results are aggregated into a defect profile: which questions fail, on which dimension, on every model.</text>
+  <text x="40" y="620" class="t">The profile sets the next knowledge batch, and the validator checks that the new entries close the measured gaps.</text>
 </svg>

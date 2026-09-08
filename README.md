@@ -1,12 +1,20 @@
 # Medical Knowledge-Graph Agent
 
-Code from a data-science internship project (2026) that makes consumer AI
-platforms answer patient questions about cancer bone metastasis more accurately,
-safely and consistently. The approach: turn authoritative medical sources into
-an evidence-linked knowledge graph, ground model answers in that graph, and
-measure the effect with a rubric-based, LLM-judged A/B evaluation across six
-Chinese LLM platforms. Measured defects then drive the next round of knowledge
-construction.
+An evidence-linked medical knowledge graph, a retrieval-grounded answering
+layer, and a rubric-based evaluation framework for large language models,
+developed during a data-science internship in 2026 for patient questions about
+cancer bone metastasis.
+
+Consumer AI platforms answer such questions inconsistently: they merge
+indications that must stay separate, invent figures and citations, and soften
+emergencies into routine advice. This project addresses that in three parts.
+Authoritative sources are converted into a knowledge graph whose entities,
+relationships and safety constraints are explicit and traceable to verified
+evidence. Model answers are grounded in evidence retrieved from that graph.
+The effect is measured with a paired A/B evaluation across six Chinese LLM
+platforms, scored by an independent judge on six dimensions and five red
+lines. Measured failure patterns then set the priorities for the next round of
+knowledge construction.
 
 The repository contains the code, prompts, schemas and tests. It does not
 contain the knowledge-graph content, the question benchmark, model responses,
@@ -22,7 +30,7 @@ evaluation exports, or any patient data. See [What is not here](#what-is-not-her
 | [`kb_ab_eval/`](kb_ab_eval/) | Paired A/B harness: for each of six platforms, answer every benchmark question once with a plain prompt and once with safety rules, per-question rubric anchors and top-k evidence retrieved from the knowledge graph. An independent judge scores both arms on six dimensions plus red lines. Runs are content-addressed and resumable. |
 | [`model_eval/`](model_eval/) | Multi-provider runner over OpenAI-compatible APIs with per-provider timeouts, retries and connection pooling; optional search augmentation (Tavily and Doubao); parallel and resumable execution; a JSON-schema LLM-as-judge scorer; HTML and Markdown report generation. |
 | [`rpa_collection/`](rpa_collection/) | Collecting answers from platforms that only expose a web chat UI: Playwright scripts that run inside an RPA worker (stdin/stdout contract, storage-state login), a local Chrome fallback, and orchestrators that keep all models in the same time window so live web search does not drift. |
-| [`ckpa_bench/`](ckpa_bench/) | Earlier benchmark pipeline (CKPA-Bench): builds items where two authoritative sources conflict (jurisdiction, guideline version, drug label versus decision support, drug-drug interaction) and measures whether a model arbitrates correctly with and without the sources. |
+| [`ckpa_bench/`](ckpa_bench/) | Benchmark construction pipeline (CKPA-Bench) from an earlier phase: builds items where two authoritative sources conflict (jurisdiction, guideline version, drug label versus decision support, drug-drug interaction) and measures whether a model arbitrates correctly with and without the sources. |
 | [`data_pipeline/`](data_pipeline/) | Two-stage extraction of real patient questions from consultation transcripts: regex normalisation, then batched LLM extraction with character-budgeted batches and JSONL checkpoints for resumable runs. |
 
 ## Knowledge graph design
@@ -104,16 +112,16 @@ are read from environment variables only.
 ## What is not here
 
 - The knowledge-graph content, source documents, question benchmark, model
-  responses and scored exports. They are the client's medical and proprietary
-  material and are excluded by `.gitignore` (all JSONL, CSV, XLSX, SQLite, HTML
-  and PDF files).
+  responses and scored exports. This material is proprietary medical content
+  and is excluded by `.gitignore` (all JSONL, CSV, XLSX, SQLite, HTML and PDF
+  files).
 - Patient consultation data used for question mining.
 - Internal platform code (the RPA platform and the Java evaluation backend the
   collection scripts call). Their public interfaces are described in
   `rpa_collection/SETUP_GUIDE.md`.
 
-Four tests in `kb_ab_eval/tests` load the KB and benchmark and therefore need
-those files locally; the remaining tests run standalone.
+Four tests in `kb_ab_eval/tests` load the knowledge graph and benchmark and
+therefore require those files locally; the remaining tests run standalone.
 
 **Stack:** Python 3.12, OpenAI-compatible SDK clients, httpx, Playwright,
 openpyxl, python-docx, pdfplumber, Tesseract / macOS Vision OCR; Claude Code
