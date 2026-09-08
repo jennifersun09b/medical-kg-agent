@@ -1,0 +1,155 @@
+{
+  "profileVersion": "1.0",
+  "source": {
+    "file": "example-eval-export.json",
+    "taskName": "客户支持问答评测（结构示例）",
+    "judgeModel": "示例裁判模型",
+    "rubricTitle": "示例四维评分标准",
+    "rubricVersion": "示例版本 v1",
+    "scoredResponses": 60,
+    "questions": 20,
+    "models": ["示例模型 A", "示例模型 B", "示例模型 C"]
+  },
+  "model_stats": [
+    {"model": "示例模型 A", "scored": 20, "averageScore": 58.0, "passed": 2, "passRate": 10.0},
+    {"model": "示例模型 B", "scored": 20, "averageScore": 61.5, "passed": 3, "passRate": 15.0},
+    {"model": "示例模型 C", "scored": 20, "averageScore": 64.0, "passed": 4, "passRate": 20.0}
+  ],
+  "dimension_stats": {
+    "D1": {"1": 22, "0.5": 30, "0": 8},
+    "D2": {"1": 18, "0.5": 30, "0": 12}
+  },
+  "redline_stats": {
+    "X1": 12,
+    "X2": 9
+  },
+  "topic_risk": [
+    {"topic": "退款时效", "responses": 12, "averageScore": 47.5, "priority": "P0"},
+    {"topic": "退货流程", "responses": 15, "averageScore": 55.0, "priority": "P1"},
+    {"topic": "订单状态", "responses": 33, "averageScore": 66.2, "priority": "P2"}
+  ],
+  "group_risk": [
+    {"topic": "售后", "responses": 27, "averageScore": 51.7, "priority": "P0"},
+    {"topic": "交易", "responses": 33, "averageScore": 66.2, "priority": "P2"}
+  ],
+  "clusters": [
+    {
+      "id": "DEF-X1",
+      "type": "redline",
+      "code": "X1",
+      "name": "承诺了规范未约定的时限",
+      "definition": "回答给出了服务规范中并不存在的时间承诺。",
+      "hits": 12,
+      "share": 20.0,
+      "models_affected": ["示例模型 A", "示例模型 B"],
+      "universal": false,
+      "priority": "P0",
+      "question_ids": ["Q001", "Q004"],
+      "question_types": {"退款时效": 9, "退货流程": 3},
+      "evidence_samples": [
+        {
+          "model": "示例模型 A",
+          "questionId": "Q001",
+          "text": "退款一般 24 小时内就会到账，最晚不超过三天。"
+        }
+      ]
+    },
+    {
+      "id": "DEF-X2",
+      "type": "redline",
+      "code": "X2",
+      "name": "混淆两个不同流程",
+      "definition": "回答把需要寄回商品的流程与只处理款项的流程当成同一件事。",
+      "hits": 9,
+      "share": 15.0,
+      "models_affected": ["示例模型 A", "示例模型 B", "示例模型 C"],
+      "universal": true,
+      "priority": "P0",
+      "question_ids": ["Q007"],
+      "question_types": {"退货流程": 9},
+      "evidence_samples": [
+        {
+          "model": "示例模型 C",
+          "questionId": "Q007",
+          "text": "提交退款申请后把商品寄回就行，两个是同一个流程。"
+        }
+      ]
+    },
+    {
+      "id": "DEF-D2",
+      "type": "dimension",
+      "code": "D2",
+      "name": "回答准确性",
+      "definition": "回答与服务规范是否一致。",
+      "hits": 12,
+      "share": 20.0,
+      "partialHits": 30,
+      "models_affected": ["示例模型 A", "示例模型 B", "示例模型 C"],
+      "universal": true,
+      "priority": "P0",
+      "question_ids": ["Q001", "Q007"],
+      "question_types": {"退款时效": 7, "退货流程": 5},
+      "evidence_samples": [
+        {
+          "model": "示例模型 B",
+          "questionId": "Q004",
+          "text": "给出的处理时限与服务规范不符。"
+        }
+      ]
+    }
+  ],
+  "question_hotspots": [
+    {
+      "questionId": "Q007",
+      "question": "退款和退货是一回事吗？需要把东西寄回去吗？",
+      "questionType": "退货流程",
+      "group": "售后",
+      "modelsAnswered": 3,
+      "modelsPassed": 0,
+      "averageScore": 38.0,
+      "universal": true,
+      "universalDimensions": ["D2"],
+      "universalRedlines": ["X2"],
+      "redlines": {"X2": 3},
+      "dimensionFails": {"D2": 3},
+      "flawSamples": ["把两个流程当成同一个，未说明商品需要寄回并验收。"]
+    },
+    {
+      "questionId": "Q001",
+      "question": "退款一般多久到账？",
+      "questionType": "退款时效",
+      "group": "售后",
+      "modelsAnswered": 3,
+      "modelsPassed": 0,
+      "averageScore": 42.0,
+      "universal": true,
+      "universalDimensions": ["D1"],
+      "universalRedlines": [],
+      "redlines": {"X1": 2},
+      "dimensionFails": {"D1": 3, "D2": 2},
+      "flawSamples": ["给出了服务规范中并不存在的到账时限。"]
+    }
+  ],
+  "hotspot_summary": {
+    "totalQuestions": 20,
+    "universalFailures": 2,
+    "carriedInProfile": 2
+  },
+  "fabrication_targets": [
+    {"keyword": "小时", "count": 11},
+    {"keyword": "工作日", "count": 6}
+  ],
+  "flaw_keywords": [
+    {"keyword": "时限", "count": 14},
+    {"keyword": "寄回", "count": 8}
+  ],
+  "samples": {
+    "mainFlaw": [
+      "给出了服务规范中并不存在的到账时限。",
+      "把两个流程当成同一个，未说明商品需要寄回并验收。"
+    ],
+    "fabrications": [
+      "「24 小时内到账」在服务规范中没有任何依据。"
+    ]
+  }
+}

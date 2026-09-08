@@ -1,0 +1,37 @@
+# secrets
+.env
+*.env
+!.env.example
+auth.json
+
+# data, knowledge-base content, evaluation exports and reports (never committed)
+*.jsonl
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.sqlite3
+*.db
+*.html
+*.pdf
+*.docx
+runs/
+results*/
+output/
+gateway_probe/
+browser_profile/
+shots/
+.scoring_cache*/
+专业知识/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.bak
+*.bak2
+
+# macOS
+.DS_Store
+._*

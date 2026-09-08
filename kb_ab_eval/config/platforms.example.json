@@ -1,0 +1,51 @@
+{
+  "qianwen": {
+    "display_name": "通义千问",
+    "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "api_key_env": "QIANWEN_API_KEY",
+    "model": "qwen-plus",
+    "temperature": 1.0,
+    "max_tokens": 1800
+  },
+  "deepseek": {
+    "display_name": "DeepSeek",
+    "base_url": "https://api.deepseek.com/v1",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "model": "deepseek-chat",
+    "temperature": 0.0,
+    "max_tokens": 1800
+  },
+  "doubao": {
+    "display_name": "豆包",
+    "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+    "api_key_env": "DOUBAO_API_KEY",
+    "model": "doubao-seed-2-1-pro-260628",
+    "temperature": 0.0,
+    "max_tokens": 1800,
+    "extra_body": {"thinking": {"type": "disabled"}}
+  },
+  "kimi": {
+    "display_name": "Kimi",
+    "base_url": "https://api.moonshot.cn/v1",
+    "api_key_env": "KIMI_API_KEY",
+    "model": "kimi-k2.6",
+    "temperature": 1.0,
+    "max_tokens": 4096
+  },
+  "hunyuan": {
+    "display_name": "腾讯混元/元宝",
+    "base_url": "https://tokenhub.tencentmaas.com/v1",
+    "api_key_env": "HUNYUAN_API_KEY",
+    "model": "hy3",
+    "temperature": 0.0,
+    "max_tokens": 4096
+  },
+  "zhipu": {
+    "display_name": "智谱 GLM",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4",
+    "api_key_env": "ZHIPU_API_KEY",
+    "model": "glm-4-plus",
+    "temperature": 0.0,
+    "max_tokens": 1800
+  }
+}
